@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <style> </style>
+<head>
+    <center><img class="titl" src="SEE.png" alt="loading">
+  </center>  <link rel="stylesheet" href="style.css">
+  <title>SEE Results</title>
+</head>
+<body>
+  <h1>SEE 2080 Results</h1>
+  <form>
+    <label for="name">Enter your Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="symbolNumber">Enter Your Symbol Number:</label>
+    <input type="text" id="symbolNumber" name="symbolNumber" required><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  <div id="displayBox"></div>
+  
+  <div class="footer">
+    Presenter: Aashutosh Khatiwada <br>Copyright &copy; 2023
+  </div>
+  
+  
+  <script>
+    // JavaScript code to handle form submission and display the results
+    
+    // Get references to the input fields and display box
+    const form = document.querySelector('form');
+    const nameInput = document.getElementById('name');
+    const symbolNumberInput = document.getElementById('symbolNumber');
+    const displayBox = document.getElementById('displayBox');
+    
+    // Add submit event listener to the form
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get the entered values
+      const name = nameInput.value;
+      const symbolNumber = symbolNumberInput.value;
+      
+      // Display a loading message in the display box
+      displayBox.innerText = 'Loading...';
+      
+      // Simulate fetching data from a source (replace with your own data retrieval logic)
+      setTimeout(function() {
+        // Simulated retrieved data
+        const result = {
+          subject: 'Mathematics',
+          marks: 85,
+          grade: 'A'
+        };
+        
+        // Display the results in the display box
+        displayBox.innerText = `Name: ${name}\nSymbol Number: ${symbolNumber}\nSubject: ${result.subject}\nMarks: ${result.marks}\nGrade: ${result.grade}`;
+        
+        // Clear the input fields
+        nameInput.value = '';
+        symbolNumberInput.value = '';
+      }, 2000); // Simulate a 2-second delay for data retrieval
+    });
+  </script>
+</body>
+</html>
